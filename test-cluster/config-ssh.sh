@@ -6,7 +6,7 @@ ssh-keygen -q -N "" -t rsa -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 echo "    StrictHostKeyChecking no                     " | sudo tee -a /etc/ssh/ssh_config
 echo "RSAAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
-echo "StrictModes yes" | sudo tee -a /etc/ssh/sshd_config
+echo "StrictModes no" | sudo tee -a /etc/ssh/sshd_config
 sudo service ssh restart
 sudo systemctl restart sshd
 
