@@ -9,7 +9,8 @@ ls -ld ~/.ssh
 ls -l ~/.ssh
 
 echo "    StrictHostKeyChecking no                     " | sudo tee -a /etc/ssh/ssh_config
-echo "RSAAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
+# echo "RSAAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
+# Disable strict modes for less strict permission checking, should add this to work
 echo "StrictModes no" | sudo tee -a /etc/ssh/sshd_config
 
 sudo systemctl restart ssh
