@@ -29,11 +29,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           # ${{github.workspace}}/test-cluster/config-ssh.sh
+          echo ----
           cat /etc/hosts
-          hostname
-          hostname -I
-          export HOST_IP=$(hostname -I | cut -f1 -d" ")
-          echo HOST_IP
-          sudo sed -i "s/127.0.1.1/HOST_IP/g" /etc/hosts
+          echo ----
+          echo "$(hostname -i) $(hostname)" | sudo tee -a /etc/hosts
           cat /etc/hosts
-          
+          echo ----
